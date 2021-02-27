@@ -104,6 +104,7 @@ public class BeerControllerTest {
                 .andExpect(jsonPath("$.type", is(beerDTO.getType().toString())));
     }
 
+    //Simular quando um nome nao é encontrado
     @Test
     void whenGETIsCalledWithoutRegisteredNameThenNotFoundStatusIsReturned() throws Exception {
         // given
@@ -118,6 +119,7 @@ public class BeerControllerTest {
                 .andExpect(status().isNotFound());
     }
 
+    // testar listas vazias e com itens
     @Test
     void whenGETListWithBeersIsCalledThenOkStatusIsReturned() throws Exception {
         // given

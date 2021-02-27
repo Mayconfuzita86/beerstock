@@ -50,6 +50,7 @@ public class BeerServiceTest {
     @InjectMocks
     private BeerService beerService;
 
+    //testar a criação de uma beer
     @Test
     void whenBeerInformedThenItShouldBeCreated() throws BeerAlreadyRegisteredException {
         // given
@@ -64,10 +65,13 @@ public class BeerServiceTest {
         BeerDTO createdBeerDTO = beerService.createBeer(expectedBeerDTO);
 
         assertThat(createdBeerDTO.getId(), is(equalTo(expectedBeerDTO.getId())));
+
         assertThat(createdBeerDTO.getName(), is(equalTo(expectedBeerDTO.getName())));
         assertThat(createdBeerDTO.getQuantity(), is(equalTo(expectedBeerDTO.getQuantity())));
-    }
 
+        //assertThat(createdBeerDTO.getQuantity(), is(greaterThan(2)));
+    }
+    //simular quando uma beer ja esteja criada no sistema
     @Test
     void whenAlreadyRegisteredBeerInformedThenAnExceptionShouldBeThrown() {
         // given
