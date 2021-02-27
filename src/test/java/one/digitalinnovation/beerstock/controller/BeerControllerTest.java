@@ -119,7 +119,7 @@ public class BeerControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-    // testar listas vazias e com itens
+    // testar lista com itens
     @Test
     void whenGETListWithBeersIsCalledThenOkStatusIsReturned() throws Exception {
         // given
@@ -137,6 +137,7 @@ public class BeerControllerTest {
                 .andExpect(jsonPath("$[0].type", is(beerDTO.getType().toString())));
     }
 
+    // testar lista vazia
     @Test
     void whenGETListWithoutBeersIsCalledThenOkStatusIsReturned() throws Exception {
         // given
@@ -150,7 +151,7 @@ public class BeerControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
-
+    //teste de exclusão
     @Test
     void whenDELETEIsCalledWithValidIdThenNoContentStatusIsReturned() throws Exception {
         // given
